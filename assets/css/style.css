@@ -67,7 +67,7 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 20px;
+  padding: 14px 20px;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -75,21 +75,48 @@ a {
 .header-logo a {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
 }
 
 .logo-img {
-  width: 56px;
-  height: 56px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--secondary);
+  border: 4px solid var(--secondary);
+  position: relative;
+  animation: logoBounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) both, logoSpin 2s ease-in-out infinite;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.15) rotate(-5deg);
+  border-color: var(--primary);
+  animation: logoBounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) both, logoSpin 2s ease-in-out infinite, logoGlowHover 0.6s ease-in-out infinite;
+}
+
+@keyframes logoBounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.1); }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes logoSpin {
+  0% { box-shadow: 0 0 15px rgba(201,168,76,0.5), 0 0 30px rgba(201,168,76,0.2); }
+  50% { box-shadow: 0 0 30px rgba(201,168,76,0.8), 0 0 60px rgba(201,168,76,0.4); }
+  100% { box-shadow: 0 0 15px rgba(201,168,76,0.5), 0 0 30px rgba(201,168,76,0.2); }
+}
+
+@keyframes logoGlowHover {
+  0%, 100% { box-shadow: 0 0 30px rgba(74,14,78,0.6), 0 0 60px rgba(201,168,76,0.4); }
+  50% { box-shadow: 0 0 50px rgba(74,14,78,0.9), 0 0 80px rgba(201,168,76,0.6); }
 }
 
 .logo-text {
   font-family: var(--font-heading);
   font-weight: 700;
-  font-size: 1.35rem;
+  font-size: 1.5rem;
   color: var(--primary);
 }
 
