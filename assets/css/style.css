@@ -79,8 +79,8 @@ a {
 }
 
 .logo-img {
-  width: 42px;
-  height: 42px;
+  width: 56px;
+  height: 56px;
   border-radius: 50%;
   object-fit: cover;
   border: 2px solid var(--secondary);
@@ -88,8 +88,8 @@ a {
 
 .logo-text {
   font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 1.2rem;
+  font-weight: 700;
+  font-size: 1.35rem;
   color: var(--primary);
 }
 
@@ -214,8 +214,9 @@ a {
 .hero-slider {
   position: relative;
   overflow: hidden;
-  height: 85vh;
-  min-height: 500px;
+  height: 80vh;
+  min-height: 600px;
+  background: var(--primary);
 }
 
 .hero-slide {
@@ -224,6 +225,10 @@ a {
   opacity: 0;
   transition: opacity 0.8s ease, transform 0.8s ease;
   transform: scale(1.05);
+  background-size: contain;
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-color: var(--primary);
 }
 
 .hero-slide.active {
@@ -231,18 +236,13 @@ a {
   transform: scale(1);
 }
 
-.hero-slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, rgba(74,14,78,0.8), rgba(107,15,26,0.6));
+  background: linear-gradient(to bottom, rgba(74,14,78,0.3) 0%, rgba(74,14,78,0.85) 60%, rgba(107,15,26,0.95) 100%);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
+  padding-bottom: 80px;
 }
 
 .hero-content {
@@ -442,14 +442,22 @@ a {
 }
 
 .service-img {
-  height: 260px;
+  width: 100%;
+  position: relative;
   overflow: hidden;
+  background: linear-gradient(180deg, var(--primary) 0%, var(--accent) 100%);
+  /* Portrait aspect ratio for makeup photos */
+  padding-bottom: 125%;
 }
 
 .service-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: center top;
   transition: transform 0.6s ease;
 }
 
@@ -513,7 +521,7 @@ a {
 }
 
 .about-features li::before {
-  content: 'âœ¦';
+  content: '✦';
   color: var(--secondary);
   position: absolute;
   left: 0;
@@ -613,12 +621,18 @@ a {
   border-radius: 4px;
   position: relative;
   cursor: pointer;
+  width: 100%;
+  padding-bottom: 125%; /* Portrait aspect ratio */
 }
 
 .gallery-item img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 280px;
+  height: 100%;
   object-fit: cover;
+  object-position: center top;
   transition: transform 0.6s ease;
 }
 
@@ -1070,14 +1084,13 @@ a {
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
   .testimonial-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; }
-  .hero-slider { height: 60vh; min-height: 400px; }
+  .hero-slider { height: 50vh; min-height: 350px; }
   .hero-content h1 { font-size: 1.8rem; }
   .hero-content p { font-size: 1rem; }
   .hero-arrow { width: 36px; height: 36px; font-size: 1rem; }
   .section { padding: 50px 0; }
   .section-title { font-size: 1.6rem; }
   .about-text h2 { font-size: 1.4rem; }
-  .gallery-item img { height: 180px; }
   .floating-contact { right: 12px; bottom: 80px; }
   .float-whatsapp, .float-phone { width: 44px; height: 44px; }
   .joinchat { left: 12px; bottom: 12px; }
@@ -1087,9 +1100,114 @@ a {
 
 @media (max-width: 480px) {
   .gallery-grid { grid-template-columns: 1fr 1fr; gap: 8px; }
-  .gallery-item img { height: 150px; }
   .section-title { font-size: 1.4rem; }
   .hero-content h1 { font-size: 1.5rem; }
   .about-buttons { flex-direction: column; }
   .contact-cta { flex-direction: column; }
+  .hero-slider { min-height: 350px; }
+}
+
+/* ======== GALLERY LIGHTBOX ======== */
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+.lightbox.active {
+  display: flex;
+}
+
+.lightbox-img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  animation: scaleUp 0.3s ease;
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: var(--white);
+  font-size: 2.5rem;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: var(--transition);
+  line-height: 1;
+}
+
+.lightbox-close:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: var(--transition);
+  backdrop-filter: blur(4px);
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+
+.gallery-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(74,14,78,0);
+  transition: var(--transition);
+}
+
+.gallery-item:hover::after {
+  background: rgba(74,14,78,0.2);
+}
+
+.gallery-item::before {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 300;
+  opacity: 0;
+  transition: var(--transition);
+  z-index: 2;
+}
+
+.gallery-item:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }

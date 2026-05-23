@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/style.css?v=3">
 </head>
 <body>
 
@@ -50,8 +50,7 @@
   <!-- ========== HERO BANNER ========== -->
   <section class="hero-section" id="hero">
     <div class="hero-slider" id="hero-slider">
-      <div class="hero-slide active">
-        <img src="assets/images/IMG_0082.jpg" alt="Makeup by Ekta Sethi">
+      <div class="hero-slide active" style="background-image: url('assets/images/IMG_0082.jpg');">
         <div class="hero-overlay">
           <div class="hero-content container">
             <h1>Unlock the Confidence You Deserve</h1>
@@ -60,8 +59,7 @@
           </div>
         </div>
       </div>
-      <div class="hero-slide">
-        <img src="assets/images/IMG_0088.jpg" alt="Makeup by Ekta Sethi">
+      <div class="hero-slide" style="background-image: url('assets/images/IMG_0088.jpg');">
         <div class="hero-overlay">
           <div class="hero-content container">
             <h1>Every Bride is a Canvas</h1>
@@ -70,8 +68,7 @@
           </div>
         </div>
       </div>
-      <div class="hero-slide">
-        <img src="assets/images/IMG_0090.jpg" alt="Makeup by Ekta Sethi">
+      <div class="hero-slide" style="background-image: url('assets/images/IMG_0090.jpg');">
         <div class="hero-overlay">
           <div class="hero-content container">
             <h1>Your Look, Elevated</h1>
@@ -369,6 +366,13 @@
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <button class="lightbox-prev" id="lightbox-prev">&#10094;</button>
+    <img class="lightbox-img" id="lightbox-img" alt="Full View">
+    <button class="lightbox-next" id="lightbox-next">&#10095;</button>
   </div>
 
   <script src="assets/js/main.js"></script>

@@ -125,6 +125,69 @@ document.addEventListener('DOMContentLoaded', function() {
     observer.observe(el);
   });
 
+  // ======== GALLERY LIGHTBOX ========
+  const galleryItems = document.querySelectorAll('.gallery-item img');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lightboxClose = document.getElementById('lightbox-close');
+  const lightboxPrev = document.getElementById('lightbox-prev');
+  const lightboxNext = document.getElementById('lightbox-next');
+  let galleryIndex = 0;
+
+  function getVisibleGalleryItems() {
+    return Array.from(document.querySelectorAll('.gallery-item img'));
+  }
+
+  function openLightbox(index) {
+    const items = getVisibleGalleryItems();
+    if (items.length > 0 && items[index]) {
+      galleryIndex = index;
+      lightboxImg.src = items[index].getAttribute('src');
+      lightboxImg.alt = items[index].getAttribute('alt') || 'Gallery Image';
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  function prevLightbox() {
+    const items = getVisibleGalleryItems();
+    let index = (galleryIndex - 1 + items.length) % items.length;
+    openLightbox(index);
+  }
+
+  function nextLightbox() {
+    const items = getVisibleGalleryItems();
+    let index = (galleryIndex + 1) % items.length;
+    openLightbox(index);
+  }
+
+  galleryItems.forEach(function(img, index) {
+    img.parentElement.addEventListener('click', function(e) {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightboxPrev.addEventListener('click', prevLightbox);
+  lightboxNext.addEventListener('click', nextLightbox);
+
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'ArrowLeft') prevLightbox();
+    if (e.key === 'ArrowRight') nextLightbox();
+    if (e.key === 'Escape') closeLightbox();
+  });
+
   // ======== FORM SUBMIT ========
   const form = document.getElementById('appointment-form');
   if (form) {
