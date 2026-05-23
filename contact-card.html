@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Ekta Sethi Makeovers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Didact+Gothic&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4A0E4E;
+      --secondary: #C9A84C;
+      --accent: #6B0F1A;
+      --light: #FDF5E6;
+      --white: #fff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Didact Gothic', sans-serif;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .card {
+      background: var(--white);
+      border-radius: 16px;
+      padding: 50px 40px;
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      animation: fadeUp 0.6s ease;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card-logo {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 4px solid var(--secondary);
+      object-fit: cover;
+      margin-bottom: 24px;
+      animation: glow 2.5s ease-in-out infinite;
+    }
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 15px rgba(201,168,76,0.5); }
+      50% { box-shadow: 0 0 30px rgba(201,168,76,0.8); }
+    }
+    .card h1 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 800;
+      font-size: 1.5rem;
+      color: var(--secondary);
+      margin-bottom: 4px;
+    }
+    .card .tagline {
+      color: var(--primary);
+      font-size: 0.9rem;
+      margin-bottom: 30px;
+    }
+    .card hr {
+      border: none;
+      height: 2px;
+      background: var(--secondary);
+      width: 50px;
+      margin: 0 auto 30px;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+      background: var(--light);
+      text-decoration: none;
+      color: var(--primary);
+      font-size: 1.05rem;
+      transition: 0.3s ease;
+      border: 1px solid transparent;
+    }
+    .info-item:hover {
+      border-color: var(--secondary);
+      background: var(--white);
+      transform: translateY(-2px);
+    }
+    .info-item svg {
+      flex-shrink: 0;
+      width: 22px;
+      height: 22px;
+    }
+    .info-item strong {
+      display: block;
+      font-size: 0.75rem;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 2px;
+    }
+    .back-link {
+      display: inline-block;
+      margin-top: 24px;
+      color: var(--secondary);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .back-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img src="assets/images/ekta-sethi.jpg" alt="Ekta Sethi" class="card-logo">
+    <h1>Ekta Sethi Makeovers</h1>
+    <p class="tagline">Unlock the Confidence You Deserve</p>
+    <hr>
+
+    <a href="tel:9289169953" class="info-item">
+      <svg viewBox="0 0 512 512" fill="#C9A84C"><path d="M497.39 361.8l-112-48a12 12 0 0 0-15 6.5l-20 48.4a12 12 0 0 1-15.6 7.7C263.2 349.8 162.2 248.8 138.1 161.3a12 12 0 0 1 7.7-15.6l48.4-20a12 12 0 0 0 6.5-15l-48-112A12 12 0 0 0 137.6.6l-112 48A12 12 0 0 0 16 64c0 238 192 432 432 432a12 12 0 0 0 15.4-9.6l48-112a12 12 0 0 0-14.01-14.6z"/></svg>
+      <div>
+        <strong>Phone</strong>
+        +91 9289169953
+      </div>
+    </a>
+
+    <a href="mailto:kunalekta1989@gmail.com" class="info-item">
+      <svg viewBox="0 0 512 512" fill="#C9A84C"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"/></svg>
+      <div>
+        <strong>Email</strong>
+        kunalekta1989@gmail.com
+      </div>
+    </a>
+
+    <a href="https://www.instagram.com/ekta__makeoverss?igsh=MTYwNnB5ZHU0ZDc0MA%3D%3D&utm_source=qr" target="_blank" class="info-item">
+      <svg viewBox="0 0 448 512" fill="#C9A84C"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+      <div>
+        <strong>Instagram</strong>
+        @ekta__makeoverss
+      </div>
+    </a>
+
+    <a href="index.html" class="back-link">Back to Website</a>
+  </div>
+</body>
+</html>
