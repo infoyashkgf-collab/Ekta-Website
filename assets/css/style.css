@@ -404,6 +404,7 @@ a {
 }
 
 .float-whatsapp,
+.float-instagram,
 .float-phone {
   width: 52px;
   height: 52px;
@@ -421,6 +422,16 @@ a {
   animation: pulse-wa 2s infinite;
 }
 
+.float-instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  animation: pulse-ig 2s infinite 0.3s;
+}
+
+@keyframes pulse-ig {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(188,24,136,0.4); }
+  50% { box-shadow: 0 0 0 12px rgba(188,24,136,0); }
+}
+
 .float-phone {
   background: var(--accent);
 }
@@ -431,6 +442,7 @@ a {
 }
 
 .float-whatsapp:hover { transform: scale(1.1); }
+.float-instagram:hover { transform: scale(1.1); }
 .float-phone:hover { transform: scale(1.1); }
 
 /* ======== SECTION COMMON ======== */
@@ -1139,7 +1151,7 @@ a {
   .section-title { font-size: 1.6rem; }
   .about-text h2 { font-size: 1.4rem; }
   .floating-contact { right: 12px; bottom: 80px; }
-  .float-whatsapp, .float-phone { width: 44px; height: 44px; }
+  .float-whatsapp, .float-instagram, .float-phone { width: 44px; height: 44px; }
   .joinchat { left: 12px; bottom: 12px; }
   .joinchat__button { width: 48px; height: 48px; }
   .joinchat__chatbox { width: 280px; }
