@@ -207,17 +207,21 @@
     }
     .header-nav-icons {
       display: flex;
-      justify-content: center;
-      gap: 12px;
+      justify-content: flex-end;
+      gap: 14px;
       margin-bottom: 14px;
       align-items: center;
+      max-width: 1400px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 0 40px;
     }
     .icon-btn {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       border: 2px solid var(--primary);
       color: var(--primary);
@@ -232,8 +236,8 @@
       transform: scale(1.1);
     }
     .icon-btn svg {
-      width: 20px;
-      height: 20px;
+      width: 24px;
+      height: 24px;
     }
     .icon-btn.insta-btn {
       border-color: transparent;
@@ -243,6 +247,11 @@
     .icon-btn.insta-btn:hover {
       transform: scale(1.15);
       box-shadow: 0 4px 15px rgba(214,36,159,0.4);
+    }
+    @media (max-width: 768px) {
+      .header-nav-icons { padding: 0 15px; }
+      .icon-btn { width: 44px; height: 44px; }
+      .icon-btn svg { width: 20px; height: 20px; }
     }
     .gallery-grid {
       display: grid;
